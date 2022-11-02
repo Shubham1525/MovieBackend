@@ -40,7 +40,7 @@ public class Movies {
 	public String image;
 	
 	@Column(name = "rating")
-	public String rating;
+	public int rating;
 	
 	@Column(name = "yoe")
 	public int yoe;

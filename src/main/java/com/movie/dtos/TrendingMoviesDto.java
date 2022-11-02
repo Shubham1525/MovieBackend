@@ -14,7 +14,7 @@ public class TrendingMoviesDto {
 	public String name;
 	public String genre;
 	public String image;
-	public String rating;
+	public int rating;
 	public boolean trending;
 	public int yoe;
 	
