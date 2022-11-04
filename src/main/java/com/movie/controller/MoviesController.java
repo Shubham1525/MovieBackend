@@ -16,7 +16,7 @@ import com.movie.entity.Movies;
 import com.movie.repos.MoviesRepository;
 import com.movie.service.MovieService;
 
-
+@CrossOrigin("*")
 @RestController
 public class MoviesController {
 
@@ -26,7 +26,6 @@ public class MoviesController {
 	@Autowired
 	   private MovieService movieService;
 	
-	  @CrossOrigin(origins = "http://localhost:8082")
 	   @GetMapping("/GetAllTrendingMovies")
 	   public List<TrendingMoviesDto> GetAllTrendingMovies()
 	    {
