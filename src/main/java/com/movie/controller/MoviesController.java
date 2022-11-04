@@ -1,6 +1,7 @@
 package com.movie.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,7 +17,6 @@ import com.movie.repos.MoviesRepository;
 import com.movie.service.MovieService;
 
 
-@CrossOrigin("*")
 @RestController
 public class MoviesController {
 
@@ -26,16 +26,12 @@ public class MoviesController {
 	@Autowired
 	   private MovieService movieService;
 	
-
+	  @CrossOrigin(origins = "http://localhost:8082")
 	   @GetMapping("/GetAllTrendingMovies")
 	   public List<TrendingMoviesDto> GetAllTrendingMovies()
 	    {
 	        return movieService.GetAllTrendingMovies();
 	    }
-	   @GetMapping("/movies")
-		public List<Movies> getAllMovies(){
-			return moviesRepository.findAll();
-		}
 	  
 	   @GetMapping("{field}")
 	  public List<Movies> getMovieswithsort(@PathVariable String field){
@@ -48,6 +44,11 @@ public class MoviesController {
 			  return allMovies;
 			
 		}
+	   
+	    @GetMapping("{id}")
+		public Optional<Movies>detailsOfMovies(@PathVariable long id){
+	    	return movieService.detailsOfMovies(id);
+	    }
 	   
 	   
 }

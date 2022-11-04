@@ -1,6 +1,7 @@
 package com.movie.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -9,10 +10,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.movie.dtos.TrendingMoviesDto;
-import com.movie.entity.FavouriteMovies;
 import com.movie.entity.Movies;
 import com.movie.repos.MoviesRepository;
-import com.movie.repos.FavouriteMovieRepository;
+
 
 
 @Service
@@ -45,6 +45,11 @@ public class MovieService {
 			return _moviesRepo.findAll(Sort.by(Sort.Direction.DESC, field));
 		}
 		
+      public Optional<Movies> detailsOfMovies(long id) {
+    	  return _moviesRepo.findById(id);
+      }
+      
+      
 		
        
 		 
