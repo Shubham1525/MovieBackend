@@ -44,13 +44,11 @@ public class MoviesController {
 			
 		}
 	   
-<<<<<<< HEAD
-	    @GetMapping("/movies/{id}")
-		public Optional<Movies>detailsOfMovies(@PathVariable long id){
-=======
+
+	   
 	    @GetMapping("/details/{id}")
 		public TrendingMoviesDto detailsOfMovies(@PathVariable long id){
->>>>>>> 5bbca541849dfa8a14b7907f9d0ab569047972f8
+
 	    	return movieService.detailsOfMovies(id);
 	    }
 	   
