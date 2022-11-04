@@ -15,6 +15,7 @@ import com.movie.repos.MoviesRepository;
 
 
 
+
 @Service
 public class MovieService {
 
@@ -45,10 +46,14 @@ public class MovieService {
 			return _moviesRepo.findAll(Sort.by(Sort.Direction.DESC, field));
 		}
 		
-      public Optional<Movies> detailsOfMovies(long id) {
-    	  return _moviesRepo.findById(id);
+      public TrendingMoviesDto detailsOfMovies(long id) {
+    	  Optional<Movies> movies = _moviesRepo.findById(id);
+    	  return modelMapper.map(movies, TrendingMoviesDto.class);
       }
-      
+//      public List<FavouriteMovieResponseDto> getFavlist(){
+//    	  
+//      }
+//      
       
 		
        

@@ -44,8 +44,8 @@ public class MoviesController {
 			
 		}
 	   
-	    @GetMapping("{id}")
-		public Optional<Movies>detailsOfMovies(@PathVariable long id){
+	    @GetMapping("/details/{id}")
+		public TrendingMoviesDto detailsOfMovies(@PathVariable long id){
 	    	return movieService.detailsOfMovies(id);
 	    }
 	   
