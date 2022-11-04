@@ -5,22 +5,26 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.movie.dtos.TrendingMoviesDto;
+import com.movie.entity.FavouriteMovies;
 import com.movie.entity.Movies;
 import com.movie.repos.MoviesRepository;
+import com.movie.repos.FavouriteMovieRepository;
 
 
 @Service
 public class MovieService {
 
 	private MoviesRepository _moviesRepo;
-		
+	
 		public MovieService(MoviesRepository movieRepo) {
 			
 			_moviesRepo= movieRepo;
 		}
+        
 		
 		 @Autowired
 		 private ModelMapper modelMapper;
@@ -30,5 +34,20 @@ public class MovieService {
 			List<TrendingMoviesDto> movie = mov.stream().map((movies)-> this.modelMapper.map(movies, TrendingMoviesDto.class)).collect(Collectors.toList());
 			return movie;	
 		}
+		 
+		public List<Movies> findMovieWithSorting(String field){
+			
+			return _moviesRepo.findAll(Sort.by(Sort.Direction.ASC, field));
+		}
+		
+      public List<Movies> findMovieWithSort(String field){
+			
+			return _moviesRepo.findAll(Sort.by(Sort.Direction.DESC, field));
+		}
+		
+		
+       
+		 
+		
 		 
 }
