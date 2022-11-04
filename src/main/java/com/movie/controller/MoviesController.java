@@ -44,7 +44,7 @@ public class MoviesController {
 			
 		}
 	   
-	    @GetMapping("{id}")
+	    @GetMapping("/movies/{id}")
 		public Optional<Movies>detailsOfMovies(@PathVariable long id){
 	    	return movieService.detailsOfMovies(id);
 	    }
