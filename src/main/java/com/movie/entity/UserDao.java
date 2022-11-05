@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Table(name = "user")
-public class User {
+public class UserDao {
 
 
 	@javax.persistence.Id
@@ -35,7 +35,7 @@ public class User {
 	public long id;
 	
 	@Column(name = "username")
-	public String name;
+	public String username;
 	
 	@Column(name = "email")
 	public String email;

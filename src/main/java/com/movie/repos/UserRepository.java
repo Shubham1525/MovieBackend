@@ -1,10 +1,13 @@
 package com.movie.repos;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.movie.entity.User;
+import org.springframework.data.repository.CrudRepository;
 
 
-public interface UserRepository  extends JpaRepository<User,Long> {
+import com.movie.entity.UserDao;
 
+
+
+public interface UserRepository  extends CrudRepository<UserDao,Integer>{
+	UserDao findByUsername(String username);
 }

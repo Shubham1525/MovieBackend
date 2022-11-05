@@ -37,5 +37,5 @@ public class FavouriteMovies {
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="userId")
-	public User user;
+	public UserDao user;
 }
