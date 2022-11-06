@@ -22,7 +22,7 @@ import com.movie.service.JwtUserDetailsService;
 import com.movie.service.UserService;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class JwtAuthenticationController {
 
 	@Autowired

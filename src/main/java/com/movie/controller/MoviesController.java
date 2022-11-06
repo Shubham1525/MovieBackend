@@ -16,7 +16,7 @@ import com.movie.entity.Movies;
 import com.movie.repos.MoviesRepository;
 import com.movie.service.MovieService;
 
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class MoviesController {
 
