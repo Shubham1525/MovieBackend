@@ -16,7 +16,7 @@ import com.movie.entity.Movies;
 import com.movie.repos.MoviesRepository;
 import com.movie.service.MovieService;
 
-@CrossOrigin("*")
+@CrossOrigin(origins="*")
 @RestController
 public class MoviesController {
 

@@ -51,6 +51,9 @@ public class Movies {
 	@Column(name = "trending")
 	public boolean trending;
 	
+	@Column(name = "description")
+	public String description;
+	
 	@OneToMany(mappedBy = "movies",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnore
     public Set<FavouriteMovies> favouriteMovies=new HashSet<>();
