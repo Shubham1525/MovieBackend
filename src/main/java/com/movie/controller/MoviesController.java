@@ -7,13 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+
 import com.movie.constants.MovieConstants;
 import com.movie.dtos.TrendingMoviesDto;
 import com.movie.entity.Movies;
+import com.movie.entity.Review;
 import com.movie.repos.MoviesRepository;
+import com.movie.repos.ReviewRepository;
 import com.movie.service.MovieService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -25,6 +31,9 @@ public class MoviesController {
 	
 	@Autowired
 	   private MovieService movieService;
+	
+	@Autowired
+	private ReviewRepository reviewRepository;
 	
 	   @GetMapping("/GetAllTrendingMovies")
 	   public List<TrendingMoviesDto> GetAllTrendingMovies()
@@ -51,6 +60,16 @@ public class MoviesController {
 
 	    	return movieService.detailsOfMovies(id);
 	    }
-	   
+	    @GetMapping("/reviews")
+		public List<Review> getAllreviews(){
+			return reviewRepository.findAll();
+		}
+	    
+	    @PostMapping("/review")
+		public Review createReview(@RequestBody Review review) 
+		{
+			 return reviewRepository.save(review);
+			
+	    }
 	   
 }
