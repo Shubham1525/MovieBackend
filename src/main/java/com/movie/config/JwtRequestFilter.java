@@ -68,12 +68,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			}
 		}
 		
-		HttpServletResponse res = (HttpServletResponse) response;
-		res.setHeader("Access-Control-Allow-Origin", "*");
-		res.setHeader("Access-Control-Expose-Headers", "Content-Disposition");
-		res.setHeader("Access-Control-Allow-Methods", "GET,POST,PATCH,DELETE,PUT,OPTIONS");
-		res.setHeader("Access-Control-Allow-Headers", "*");
-		res.setHeader("Access-Control-Max-Age", "86400");
 		chain.doFilter(request, response);
 	}
 	

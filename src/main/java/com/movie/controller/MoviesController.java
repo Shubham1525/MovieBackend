@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -22,12 +23,10 @@ import com.movie.repos.MoviesRepository;
 import com.movie.repos.ReviewRepository;
 import com.movie.service.MovieService;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "*")
 @RestController
 public class MoviesController {
 
-	@Autowired 
-	private MoviesRepository moviesRepository;
 	
 	@Autowired
 	   private MovieService movieService;
@@ -60,16 +59,18 @@ public class MoviesController {
 
 	    	return movieService.detailsOfMovies(id);
 	    }
-	    @GetMapping("/reviews")
+	    
+	    @GetMapping("/getReviews")
 		public List<Review> getAllreviews(){
 			return reviewRepository.findAll();
 		}
 	    
-	    @PostMapping("/review")
+	    @PostMapping("/addReview")
 		public Review createReview(@RequestBody Review review) 
 		{
 			 return reviewRepository.save(review);
-			
+			    
+	
 	    }
 	   
 }
