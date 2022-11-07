@@ -32,7 +32,7 @@ public class UserDto {
 	
 	@Email(message = "Email address is not valid")
     private String email;
-	private Set<FavouriteMovies> favouriteMovies=new HashSet<>();
+	
     
    
 }
